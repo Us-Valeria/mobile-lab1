@@ -9,6 +9,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.lab1.models.News
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.ui.Alignment
 
 @Composable
 fun NewsScreen(newsViewModel: NewsViewModel = viewModel()) {
@@ -59,19 +62,34 @@ fun NewsCard(news: News, onLike: (News) -> Unit, modifier: Modifier = Modifier) 
                 .padding(16.dp)
                 .fillMaxSize(),
             verticalArrangement = Arrangement.SpaceBetween
-
         ) {
             Text(text = news.title, modifier = Modifier.weight(0.9f))
-            Text(
-                text = "${news.likes}",
-                style = MaterialTheme.typography.bodySmall,
+
+
+            Row(
                 modifier = Modifier
                     .weight(0.1f)
-                    .clickable { onLike(news) }
-            )
+                    .clickable { onLike(news) },
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Favorite,
+                    contentDescription = "Like",
+                    tint = Color.Red
+                )
+                Spacer(modifier = Modifier.width(4.dp))
+                Text(
+                    text = "${news.likes}",
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            }
+
+
+            }
         }
     }
-}
+
+
 
 @Preview(showBackground = true)
 @Composable
