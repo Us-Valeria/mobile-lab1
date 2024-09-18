@@ -14,12 +14,12 @@ fun NewsScreen(newsViewModel: NewsViewModel = viewModel()) {
 
     Column(modifier = Modifier.fillMaxSize()) {
         Row(modifier = Modifier.weight(1f)) {
-            NewsCard(news = newsList[0], onLike = {}, Modifier.weight(1f))
-            NewsCard(news = newsList[1], onLike = {}, Modifier.weight(1f))
+            NewsCard(news = newsList[0], onLike = {newsViewModel.increaseLikes(it)}, Modifier.weight(1f))
+            NewsCard(news = newsList[1], onLike = {newsViewModel.increaseLikes(it)}, Modifier.weight(1f))
         }
         Row(modifier = Modifier.weight(1f)) {
-            NewsCard(news = newsList[2], onLike = {}, Modifier.weight(1f))
-            NewsCard(news = newsList[3], onLike = {}, Modifier.weight(1f))
+            NewsCard(news = newsList[2], onLike = {newsViewModel.increaseLikes(it)}, Modifier.weight(1f))
+            NewsCard(news = newsList[3], onLike = {newsViewModel.increaseLikes(it)}, Modifier.weight(1f))
         }
     }
 }
