@@ -33,6 +33,12 @@ class NewsViewModel : ViewModel() {
         val indexToReplace = (0..3).random()
         newsList[indexToReplace] = randomNews.copy(likes = randomNews.likes)
     }
+    fun increaseLikes(news: News) {
+        val index = newsList.indexOf(news)
+        if (index != -1) {
+            newsList[index] = news.copy(likes = news.likes + 1)
+        }
+    }
 }
 
 
