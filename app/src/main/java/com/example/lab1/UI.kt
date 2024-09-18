@@ -1,3 +1,4 @@
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -35,7 +36,9 @@ fun NewsCard(news: News, onLike: (News) -> Unit, modifier: Modifier = Modifier) 
             Text(text = news.title, modifier = Modifier.weight(0.9f))
             Text(
                 text = "${news.likes}",
-                modifier = Modifier.weight(0.1f)
+                modifier = Modifier
+                    .weight(0.1f)
+                    .clickable { onLike(news) }
             )
         }
     }
