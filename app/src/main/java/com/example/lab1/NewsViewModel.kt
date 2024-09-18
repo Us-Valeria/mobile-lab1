@@ -28,5 +28,11 @@ class NewsViewModel : ViewModel() {
             }
         }
     }
-    private fun replaceRandomNews() {}
+    private fun replaceRandomNews() {
+        val randomNews = newsList.random()
+        val indexToReplace = (0..3).random()
+        newsList[indexToReplace] = randomNews.copy(likes = randomNews.likes)
+    }
 }
+
+
